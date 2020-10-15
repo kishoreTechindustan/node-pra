@@ -1,0 +1,23 @@
+{
+  "name": "pra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "server":"nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kishoreTechindustan/node-pra.git"
+  },
+  "author": "kk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kishoreTechindustan/node-pra/issues"
+  },
+  "homepage": "https://github.com/kishoreTechindustan/node-pra#readme",
+  "dependencies": {
+    "nodemon": "^2.0.5"
+  }
+}
