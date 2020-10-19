@@ -1,5 +1,7 @@
 const fs = require('fs');
 const http = require('http')
+const module1 = require('./module1')
+const module2 = require('./module2')
 
 const server = http.createServer((req,res)=>{
    const url =req.url;
@@ -9,7 +11,9 @@ const server = http.createServer((req,res)=>{
       res.write('<html>')
       res.write('<title><head>Node js</head></title>')
       res.write('<Body> <form action="/message" method="POST"><input type="text" name="message"><button type="submit">Submit</button></from> </Body>')
+      res.write( module2.myVariable)
       res.write('</html>')
+       module2.myFunction()
       return res.end()
    }
    if(url ==="/message" && method ==="POST"){
