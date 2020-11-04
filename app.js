@@ -1,34 +1,7 @@
-const url =require('url')
-const fs = require('fs');
+const http = require('http');
 
-function htmlRender(file,res){
-    fs.readFile(file,null,(err,data)=>{
-        if(err){
-           res.writeHead(404)
-           res.write("page not found")
-        }else{
-           res.write(data)
-        }
-        res.end()
-     })
-}
+const routes = require('./routes');
 
-module.exports ={
-    httpHandler : (req,res)=>{
-        res.writeHead(200,{'Content-Type':'text/html'})
-        const path = url.parse(req.url).pathname;
-        switch(path){
-            case '/':
-                htmlRender('./index.html',res)
-                break;
-            case '/login':
-                htmlRender('./login.html',res)
-                break;
-            default :
-                  res.writeHead(404)
-                  res.write('Route is not define')
-                  res.end()
-        }
-     
-     }
-}
+const server = http.createServer(routes.handler);
+
+server.listen(3000,() =>`listening at 3000`) 
