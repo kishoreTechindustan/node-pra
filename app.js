@@ -1,15 +1,19 @@
 const express = require('express');
-const app = express();
 var bodyParser = require('body-parser');
 const amdinData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const path = require('path');
+const expresshbs = require('express-handlebars');
 
 const port = 3000;
 
+const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
-app.set('view engine', 'pug')
+
+
+app.engine('hbs', expresshbs({ layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs' }))
+app.set('view engine', 'hbs')
 app.set('views', 'views')
 
 
