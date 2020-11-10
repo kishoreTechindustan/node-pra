@@ -12,8 +12,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 
 
-app.engine('hbs', expresshbs({ layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs' }))
-app.set('view engine', 'hbs')
+// app.engine('hbs', expresshbs({ layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs' }))
+// app.set('view engine', 'hbs')
+app.set('view engine', 'ejs')
 app.set('views', 'views')
 
 
